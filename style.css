@@ -138,6 +138,8 @@ html {
   align-self: center;
   justify-self: center;
   opacity: 0.5;
+  position: relative;
+  transtition: left 2s, top;
 }
 
 .circle-1 {
@@ -178,6 +180,7 @@ html {
 
 .main-circle img {
   mix-blend-mode: color-dodge;
+  position: relative;
 }
 /* End of Animated Circles  */
 
