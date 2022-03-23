@@ -57,4 +57,3 @@ document.body.addEventListener("mouseleave", () => {
   mouseCircle.style.opacity = "0";
   mouseDot.style.opacity = "0";
 });
-//7adfsa
