@@ -201,6 +201,28 @@ html {
 }
 /*End of Page BG*/
 
+/* Progress Bar */
+.progress-bar {
+  position: fixed;
+  bottom: 8rem;
+  right: 8rem;
+  width: 8rem;
+  height: 8rem;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.progress-bar-circle {
+  width: 7.8rem;
+  height: 7.8rem;
+  background-color: #000;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 4rem;
+  display: none;
+}
+/* End of Progress Bar */
+
 /* Navigation */
 /* Menu Icon */
 .menu-icon {
