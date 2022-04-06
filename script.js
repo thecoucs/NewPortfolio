@@ -82,6 +82,33 @@ mainBtns.forEach((btn) => {
 
 // End of Main Button
 
+// Progress Bar
+const halfCircles = document.querySelectorAll(".half-circle");
+const halfCircleTop = document.querySelector(".half-circle-top");
+const progressBarCircle = document.querySelector(".progress-bar-circle");
+
+const progressBarFn = () => {
+  const pageViewPortHeight = window.innerHeight;
+  const pageHeight = document.documentElement.scrollHeight;
+  const scrolledPortion = window.pageYOffset;
+
+  const scrolledPortionDegree =
+    (scrolledPortion / (pageHeight - pageViewPortHeight)) * 360;
+
+  halfCircles.forEach((el) => {
+    el.style.transform = `rotate(${scrolledPortionDegree}deg)`;
+
+    if (scrolledPortionDegree >= 180) {
+      halfCircles[0].style.transform = "rotate(180deg)";
+      halfCircleTop.style.opacity = "0";
+    } else {
+      halfCircleTop.style.opacity = "1";
+    }
+  });
+};
+
+// End of Progress Bar
+
 // Navigation
 const menuIcon = document.querySelector(".menu-icon");
 const navbar = document.querySelector(".navbar");
@@ -95,10 +122,12 @@ document.addEventListener("scroll", () => {
     navbar.classList.remove("hide-navbar");
   }
 
-  menuIcon.addEventListener("click", () => {
-    menuIcon.classList.remove("show-menu-icon");
-    navbar.classList.remove("hide-navbar");
-  });
+  progressBarFn();
+});
+
+menuIcon.addEventListener("click", () => {
+  menuIcon.classList.remove("show-menu-icon");
+  navbar.classList.remove("hide-navbar");
 });
 // End of Navigation
 
