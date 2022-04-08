@@ -83,6 +83,8 @@ mainBtns.forEach((btn) => {
 // End of Main Button
 
 // Progress Bar
+const sections = document.querySelectorAll("section");
+const progressBar = document.querySelector(".progress-bar");
 const halfCircles = document.querySelectorAll(".half-circle");
 const halfCircleTop = document.querySelector(".half-circle-top");
 const progressBarCircle = document.querySelector(".progress-bar-circle");
@@ -105,8 +107,35 @@ const progressBarFn = () => {
       halfCircleTop.style.opacity = "1";
     }
   });
-};
 
+  const scrollBool = scrolledPortion + pageViewPortHeight === pageHeight;
+
+  // Progress Bar click
+  progressBar.onclick = (e) => {
+    e.preventDefault();
+
+    const sectionPositions = Array.from(sections).map(
+      (section) => scrolledPortion + section.getBoundingClientRect().top
+    );
+
+    const position = sectionPositions.find((sectionPosition) => {
+      return sectionPosition > scrolledPortion;
+    });
+
+    scrollBool ? window.scrollTo(0, 0) : window.scrollTo(0, position);
+    console.log(position);
+  };
+  // End of Progress Bar click
+
+  // Arrow Rotation
+  if (scrollBool) {
+    progressBarCircle.style.transform = "rotate(180deg)";
+  } else {
+    progressBarCircle.style.transform = "rotate(0)";
+  }
+  // End of Arrow Rotation
+};
+progressBarFn();
 // End of Progress Bar
 
 // Navigation
