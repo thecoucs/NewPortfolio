@@ -474,13 +474,17 @@ const checkEmail = (input) => {
 };
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
   checkLength(username, 2);
   checkLength(subject, 2);
   checkLength(message, 10);
   checkEmail(email);
   checkRequiredFields([username, email, subject, message]);
+
+  const notValid = Array.from(messages).find((message) => {
+    return message.classList.contains.classList("error");
+  });
+
+  notValid && e.preventDefault();
 });
 // End of Validation
 // End of Section 5

@@ -225,13 +225,14 @@
         <!-- Form Wrapper -->
         <div class="form-wrapper">
           <h2 class="form-heading">Let's Talk</h2>
-          <form class="contact-form center">
+          <form class="contact-form center" action="POST" data-netlify="true">
             <input
               type="text"
               class="contact-form-input pointer-enter"
               placeholder="Name"
               id="name"
               autocomplete="off"
+              name="name"
             />
             <p class="message">Error Message</p>
             <input
@@ -240,6 +241,7 @@
               placeholder="Email"
               id="email"
               autocomplete="off"
+              name="email"
             />
             <p class="message">Error Message</p>
             <input
@@ -248,6 +250,7 @@
               placeholder="Subject"
               id="subject"
               autocomplete="off"
+              name="subject"
             />
             <p class="message">Error Message</p>
             <textarea
@@ -255,6 +258,7 @@
               placeholder="Message"
               id="message"
               autocomplete="off"
+              name="message"
             ></textarea>
             <p class="message">Error Message</p>
             <input
